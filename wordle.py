@@ -1,6 +1,7 @@
 import random
 f=open("cuvinte.txt", "r")
 L=f.read()
+f.close()
 L=L.split("\n")
 
 cuv=L[random.randint(0,11455)]
@@ -17,3 +18,4 @@ while guess!=cuv:
 		else:
 			status+="⬜"
 	print(status)
+
