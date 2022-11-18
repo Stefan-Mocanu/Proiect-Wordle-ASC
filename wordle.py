@@ -8,7 +8,15 @@ cuv=L[random.randint(0,11455)]
 print(cuv)
 guess=''
 while guess!=cuv:
-	guess=input("Ghiciti: ")
+	f=open("IO1.txt","r")
+	while True:
+		guess=f.read()
+		if guess!="":
+			break
+	f.close()
+	print("Primit", guess)
+	f=open("IO1.txt","w")
+	f.close()
 	status=''
 	for index in range(len(guess)):
 		if guess[index]==cuv[index]:
@@ -17,5 +25,8 @@ while guess!=cuv:
 			status+="🟨"
 		else:
 			status+="⬜"
+	g=open("IO2.txt","w")
 	print(status)
+	g.write(status)
+	guess=""
 
