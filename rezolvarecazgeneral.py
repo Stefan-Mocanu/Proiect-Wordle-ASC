@@ -6,6 +6,7 @@ L=L.split("\n")
 L=L[:-1]
 Cuvinte=L.copy()
 rez=""
+lun=len(L)
 def give_best():
 	global Cuvinte
 	d=[{chr(x):0 for x in range(ord('A'),ord('Z')+1)} for i in range(5)]
@@ -27,7 +28,6 @@ def give_best():
 	return best
 
 def schimba(rez, sol):
-	global lit
 	global Cuvinte
 	Cuvinte.remove(sol)
 	for i in range(5):
@@ -45,24 +45,29 @@ def schimba(rez, sol):
 					Cuvinte.remove(j)
 
 
-
-ok=False
-while ok!=True:
-	f=open("IO1.txt","w")
-	solutie=give_best()
-	f.write(solutie)
-	f.close()
-	g=open("IO2.txt","r")
-	while True:
-		rez=g.read()
-		if rez!='':
-			break
-	g.close()
-	g=open("IO2.txt","w")
-	g.close()
-	if rez=="🟩🟩🟩🟩🟩":
-		ok=True
-		continue
-	schimba(rez,solutie)
+for index in range(lun):
+	ok=False
+	Cuvinte=L.copy()
 	rez=""
+	while ok!=True:
+		f=open("IO1.txt","w")
+		solutie=give_best()
+		#print("Ghicire", solutie)
+		f.write(solutie)
+		f.close()
+		g=open("IO2.txt","r")
+		while True:
+			rez=g.read()
+			if rez!='':
+				break
+		g.close()
+		#print("Primit",rez)
+		g=open("IO2.txt","w")
+		g.close()
+		if rez=="🟩🟩🟩🟩🟩":
+			ok=True
+			continue
+		schimba(rez,solutie)
+		rez=""
 	
+		

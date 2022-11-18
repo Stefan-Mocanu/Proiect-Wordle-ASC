@@ -7,6 +7,7 @@ L=L.split("\n")
 cuv=L[random.randint(0,11455)]
 print(cuv)
 guess=''
+nr=0
 while guess!=cuv:
 	f=open("IO1.txt","r")
 	while True:
@@ -28,5 +29,11 @@ while guess!=cuv:
 	g=open("IO2.txt","w")
 	print(status)
 	g.write(status)
+	g.close()
+	if status=="🟩🟩🟩🟩🟩":
+		print(nr)
+		break
+	else:
+		nr+=1
 	guess=""
 
