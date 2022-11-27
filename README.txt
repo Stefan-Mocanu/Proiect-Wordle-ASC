@@ -18,7 +18,7 @@ python3 wordle_pentru_cuvant_random.py &python3 rezolvare_pentru_cuvant_random.p
 
 Comunicarea între programe se face prin intermediul fișierelor IO1.txt și IO2.txt.
 
-În medie a fost nevoie de 4.374105116116641 soluții pentru ghicirea tuturor cuvintelor.
+În medie a fost nevoie de 4.142308363890344 soluții pentru ghicirea tuturor cuvintelor.
 
 Referințe:
 Entropia lui Shannon: Cursul 0x02, Arhitectura Sistemelor de calcul

@@ -13,7 +13,7 @@ def give_best():
 		return Cuvinte[0]
 	maxe = 0
 	maxguess = ""
-	for guess in Cuvinte:
+	for guess in L:
 		d = {}
 		for sol in Cuvinte:
 			distrib = []
@@ -43,27 +43,29 @@ def schimba(rez, sol):
 	global Cuvinte
 	if sol in Cuvinte:
 		Cuvinte.remove(sol)
-	OK = 0
-	while OK == 0:
-		OK = 1
-		for i in range(5):
-			if rez[i]=="🟩":
-				for j in Cuvinte:
-					if j[i]!=sol[i]:
-						Cuvinte.remove(j)
-						OK = 0
-			if rez[i]=="🟨":
-				for j in Cuvinte:
-					if sol[i] not in j or j[i]==sol[i]:
-						Cuvinte.remove(j)
-						OK=0
-			if rez[i]=="⬜":
-				for j in Cuvinte:
-					if sol[i] in j:
-						Cuvinte.remove(j)
-						OK=0
-
-
+	for i in range(5):
+		if rez[i]=="🟩":
+			j = 0
+			while j < len(Cuvinte):
+				if Cuvinte[j][i]!=sol[i]:
+					Cuvinte.remove(Cuvinte[j])
+				else:
+					j += 1
+		if rez[i]=="🟨":
+			j = 0
+			while j < len(Cuvinte):
+				if sol[i] not in Cuvinte[j] or Cuvinte[j][i]==sol[i]:
+					Cuvinte.remove(Cuvinte[j])
+				else:
+					j += 1
+		if rez[i]=="⬜":
+			j = 0
+			while j < len(Cuvinte):
+				if sol[i] in Cuvinte[j]:
+					Cuvinte.remove(Cuvinte[j])
+				else:
+					j += 1
+					
 
 
 ok=False
