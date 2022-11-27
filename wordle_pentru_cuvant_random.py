@@ -6,9 +6,8 @@ L=L.split("\n")
 L=L[:-1]
 
 cuv=L[random.randint(0,11455)]
-print(cuv)
 guess=''
-nr=0
+nr=1
 while guess!=cuv:
 	f=open("IO1.txt","r")
 	while True:
@@ -16,7 +15,7 @@ while guess!=cuv:
 		if guess!="":
 			break
 	f.close()
-	print("Primit", guess)
+	print("Incercare", guess)
 	f=open("IO1.txt","w")
 	f.close()
 	status=''
@@ -32,7 +31,7 @@ while guess!=cuv:
 	g.write(status)
 	g.close()
 	if status=="🟩🟩🟩🟩🟩":
-		print(nr)
+		print(f"Cuvantul {cuv} a fost ghicit in {nr} incercari")
 		break
 	else:
 		nr+=1

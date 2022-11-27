@@ -38,10 +38,10 @@ for cuv in L:
 		else:
 			nr+=1
 		guess=""
-	f=open("solutii.txt","a")
-	f.write(", ".join(list))
-	f.write("\n")
-	f.close()
+	h=open("solutii.txt","a")
+	h.write(", ".join(list))
+	h.write("\n")
+	h.close()
 	print(f"Pentru {cuv} a fost nevoie de {nr} incercari")
 	medie+=nr
 medie=medie/lun
